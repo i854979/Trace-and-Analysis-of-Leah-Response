@@ -1,0 +1,76 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:sl="sap.ui.comp.navpopover" 
+	controllerName="sap.ui.comp.sample.smartfilterbar.SmartFilterBar" height="100%">		
+		<smartFilterBar:SmartFilterBar id="smartFilterBar" entityType="TraceRecord" persistencyKey="myFilterKey">
+			
+			<smartFilterBar:controlConfiguration>	
+			
+				<smartFilterBar:ControlConfiguration
+					key="StartTime" index="1" label="Start Time"
+					groupId="_BASIC" width="300px" hasValueHelpDialog = "false" 
+					visibleInAdvancedArea="true" >
+					<smartFilterBar:customControl>
+						<DateTimePicker
+							id="DTP5"
+							value="{path:'/dateValue', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"
+							/>
+					</smartFilterBar:customControl>
+				</smartFilterBar:ControlConfiguration>
+				
+				<smartFilterBar:ControlConfiguration
+					key="Time" index="1" label="EndTime"
+					groupId="_BASIC" width="300px" hasValueHelpDialog = "false" 
+					visibleInAdvancedArea="true" >
+					<smartFilterBar:customControl>
+						<DateTimePicker
+							id="DTP6"
+							value="{path:'/dateValue', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"
+							/>
+					</smartFilterBar:customControl>
+				</smartFilterBar:ControlConfiguration>
+				
+				<smartFilterBar:ControlConfiguration
+					key="ProviderName" index="1" label="ProviderName"
+					groupId="_BASIC" width="300px" hasValueHelpDialog = "false" 
+					visibleInAdvancedArea="true" >
+					<smartFilterBar:customControl>
+						<Select id="foo" customData:hasValue="true" >
+							<core:Item key="" text = "" />
+							<core:Item key="Daniel" text="Daniel" />
+							<core:Item key="api.ai" text="api.ai" />
+							<core:Item key="SoundHound" text="SoundHound"/>
+						</Select>
+					</smartFilterBar:customControl>
+				</smartFilterBar:ControlConfiguration>
+				
+				<smartFilterBar:ControlConfiguration
+					key="Intent" index="1" label="Intent"
+					groupId="_BASIC" width="300px" hasValueHelpDialog = "false" 
+				    visibleInAdvancedArea="true" >
+				    <smartFilterBar:customControl>
+					    <Select id="foo2" customData:hasValue="true" >
+					    	<core:Item key="" text = "" />
+						    <core:Item key="Create" text="Create" />
+						    <core:Item key="Query" text="Query" />
+						    <core:Item key="Delete" text="Delete"/>
+					    </Select>
+				    </smartFilterBar:customControl>
+				</smartFilterBar:ControlConfiguration>
+				
+
+				
+				</smartFilterBar:controlConfiguration>			
+			
+			</smartFilterBar:SmartFilterBar>
+			
+		<smartTable:SmartTable entitySet="TraceRecords" smartFilterId="smartFilterBar" tableType="ResponsiveTable" useExportToExcel="true" 
+		useVariantManagement="false" useTablePersonalisation="true" header="Leah Responses" showRowCount="true" enableAutoBinding="true" beforeRebindTable="onBeforeRebindTable">
+			<smartTable:semanticObjectController>
+			<sl:SemanticObjectController navigate="onNavigate" />
+		</smartTable:semanticObjectController>
+		</smartTable:SmartTable>
+</core:View>

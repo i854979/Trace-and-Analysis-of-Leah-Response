@@ -1,0 +1,40 @@
+[
+	{
+  	"AIRequest":{
+  		"reqText":"Show me time off accounts",
+  		"ConID":"00001"
+  	},
+  	"AIResponse":{
+  		"ConID":"00001",
+  		"resIntent":{
+  			"Confidence":0.78,
+  			"Intent": "Query"
+  		},
+  		"resText":"Show me time off accounts",
+  		"ProviderName":"Daniel",
+  		"Time":"/Date(1474200000000)/",
+  		"Success": true,
+  		"Error":"n/a",
+  		"ConDone":true
+  	}
+  },
+  {
+  	"AIRequest":{
+  		"reqText":"Ask for leave",
+  		"ConID":"00002"
+  	},
+  	"AIResponse":{
+  		"ConID":"00002",
+  		"resIntent":{
+  			"Confidence":0.88,
+  			"Intent": "Query"
+  		},
+  		"resText":"Ask for leave",
+  		"ProviderName":"api.ai",
+  		"Time":"/Date(1474200000000)/",
+  		"Success": true,
+  		"Error":"n/a",
+  		"ConDone":true
+  	}
+  }
+]

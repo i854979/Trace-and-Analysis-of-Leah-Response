@@ -1,0 +1,95 @@
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="com.sap.wt05" 
+			sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			
+			
+			<EntityType Name="TraceRecord">
+				<Key>
+					<PropertyRef Name="ConID" />
+				</Key>
+				<Property Name="Time" Type="Edm.DateTime" Precision="0"
+					 sap:filter-restriction="interval" sap:label="Time"
+					sap:creatable="false" sap:updatable="false" sap:filterable="true"/>
+				<Property Name="ConID" Type="Edm.String"
+					sap:label="ConID" sap:filterable="false" />
+				<Property Name="reqText" Type="Edm.String"
+					sap:label="reqText" sap:filterable="false" />
+				<Property Name="resText" Type="Edm.String"
+					sap:label="resText" sap:filterable="false" />
+				<Property Name="ProviderName" Type="Edm.String"
+					sap:label="ProviderName" sap:filter-restriction="single-value" sap:filterable="true"
+					/>
+				<Property Name="Intent" Type="Edm.String"
+					sap:label="Intent" sap:filter-restriction="single-value" sap:filterable="true" 
+					/>
+				<Property Name="Confidence" Type="Edm.Double"
+					sap:label="Confidence" sap:filterable="false" />
+				<Property Name="Success" Type="Edm.Boolean"
+					sap:label="Success" sap:filterable="false" />
+				<Property Name="Error" Type="Edm.String"
+					sap:label="Error" sap:filterable="false" />
+				<Property Name="ConDone" Type="Edm.Boolean"
+					sap:label="ConDone" sap:filterable="false" />
+			</EntityType>
+			
+			
+			
+			
+			
+			<EntityContainer m:IsDefaultEntityContainer="true"
+				sap:supported-formats="atom json">
+				<EntitySet Name="TraceRecords" EntityType="com.sap.wt05.TraceRecord" />
+			</EntityContainer>
+			
+			
+			
+			<Annotations Target="com.sap.wt05.TraceRecord"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ConID" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="reqText" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="resText" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ProviderName" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Intent"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Time"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Confidence"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Success"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Error"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ConDone"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			
+			<Annotations Target="com.sap.wt05.TraceRecord/ConID"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject"
+					String="ConID" />
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
